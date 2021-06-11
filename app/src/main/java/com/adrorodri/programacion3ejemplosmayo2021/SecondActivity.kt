@@ -8,6 +8,7 @@ import android.widget.FrameLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.gson.Gson
 
 class SecondActivity: AppCompatActivity() {
 
@@ -15,19 +16,30 @@ class SecondActivity: AppCompatActivity() {
     lateinit var frameLayout: FrameLayout
     lateinit var textView: TextView
     var contador = 0
-    val pedido = Pedido("Darth Vader", 135.50)
+    val pedidos = listOf(
+        Pedido("Darth Vader", 135.50),
+        Pedido("Darth 1", 15.50),
+        Pedido("Vader 2", 13.50),
+        Pedido("Darder 3", 45.50),
+        Pedido("Darter 4", 12.0),
+        Pedido("Dader 5", 1.50)
+    )
     val reqCode = 1234
+
+    val gson = Gson()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_constraintlayout)
         initViews()
         buttonIntent.setOnClickListener {
-            CarritoDeCompras.pedido = pedido
+            CarritoDeCompras.pedido = pedidos[0]
+
+            val pedidosJson = gson.toJson(pedidos)
 
             val intent = Intent(this, ThirdActivity::class.java)
             intent.putExtra("contador", contador)
-            intent.putExtra("pedido", pedido)
+            intent.putExtra("pedidos", pedidosJson)
             startActivityForResult(intent, reqCode)
         }
         frameLayout.setOnClickListener {
