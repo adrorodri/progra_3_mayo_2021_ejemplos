@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Programacion 3 Examples May 2021</string>
+    <string name="bienvenido">Welcome to Progra 3!</string>
+    <string name="iniciar_sesion">Log In</string>
+</resources>
