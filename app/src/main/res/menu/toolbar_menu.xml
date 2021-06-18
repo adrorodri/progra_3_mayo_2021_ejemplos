@@ -5,8 +5,8 @@
         android:id="@+id/menu_item_ajustes"
         android:icon="@drawable/icon_gears"
         android:title="Ajustes"
-        app:showAsAction="always"
-        android:iconTint="?attr/colorOnPrimary"/>
+        app:iconTint="?attr/colorOnPrimary"
+        app:showAsAction="always" />
     <item android:id="@+id/menu_item_acerca_de"
         android:title="Acerca de" />
     <item android:id="@+id/menu_item_cerrar_sesion"

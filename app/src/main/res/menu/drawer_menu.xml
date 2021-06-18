@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:title="Ajustes"
+        android:icon="@drawable/icon_gears">
+        <menu>
+            <item android:id="@+id/menu_item_mis_direcciones"
+                android:title="Mis direcciones"/>
+            <item android:title="Mis ajustes"/>
+            <item android:title="Notificaciones"/>
+        </menu>
+    </item>
+
+    <item
+        android:id="@+id/menu_item_acerca_de"
+        android:title="Acerca de" />
+
+    <item
+        android:id="@+id/menu_item_cerrar_sesion"
+        android:title="Cerrar Sesión" />
+</menu>

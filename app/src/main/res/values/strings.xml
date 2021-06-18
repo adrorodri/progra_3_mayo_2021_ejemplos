@@ -2,4 +2,6 @@
     <string name="app_name">Programacion 3 Ejemplos Mayo 2021</string>
     <string name="bienvenido">Bienvenido a Progra 3!</string>
     <string name="iniciar_sesion">Iniciar Sesión</string>
+    <string name="navigation_drawer_open" translatable="false">Open Drawer</string>
+    <string name="navigation_drawer_close" translatable="false">Close Drawer</string>
 </resources>
