@@ -1,5 +1,6 @@
 package com.adrorodri.programacion3ejemplosmayo2021
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -36,6 +37,10 @@ class MainMenuActivity : AppCompatActivity() {
 
         adapter.setOnMenuOptionClickListener { menuOption ->
             Toast.makeText(this, "Click en ${menuOption.titulo}", Toast.LENGTH_SHORT).show()
+            if(menuOption.titulo == "Tienda") {
+                val intent = Intent(this, TiendaActivity::class.java)
+                startActivity(intent)
+            }
         }
 
         buttonAgregarALaLista.setOnClickListener {
