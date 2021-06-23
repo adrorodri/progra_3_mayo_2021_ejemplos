@@ -1,4 +1,4 @@
-package com.adrorodri.programacion3ejemplosmayo2021
+package com.adrorodri.programacion3ejemplosmayo2021.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,6 +6,7 @@ import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.Spinner
 import androidx.recyclerview.widget.RecyclerView
+import com.adrorodri.programacion3ejemplosmayo2021.R
 
 class LlenarDatosActivity : AppCompatActivity() {
 

@@ -1,4 +1,4 @@
-package com.adrorodri.programacion3ejemplosmayo2021
+package com.adrorodri.programacion3ejemplosmayo2021.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +7,10 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.adrorodri.programacion3ejemplosmayo2021.persistency.DatabaseController
+import com.adrorodri.programacion3ejemplosmayo2021.model.Producto
+import com.adrorodri.programacion3ejemplosmayo2021.R
+import com.adrorodri.programacion3ejemplosmayo2021.StoreRecyclerViewAdapter
 
 class TiendaActivity : AppCompatActivity() {
 

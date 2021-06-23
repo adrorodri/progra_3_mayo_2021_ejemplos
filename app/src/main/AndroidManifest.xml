@@ -9,23 +9,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Programacion3EjemplosMayo2021">
-        <activity android:name=".CarritoActivity"></activity>
-        <activity android:name=".TiendaActivity" />
-        <activity android:name=".MainMenuActivity" />
-        <activity android:name=".LlenarDatosActivity" />
+        <activity android:name=".activities.CarritoActivity"></activity>
+        <activity android:name=".activities.TiendaActivity" />
+        <activity android:name=".activities.MainMenuActivity" />
+        <activity android:name=".activities.LlenarDatosActivity" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".activities.LoginActivity"
             android:theme="@style/LoginTheme" />
-        <activity android:name=".SplashActivity">
+        <activity android:name=".activities.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
-        <activity android:name=".SecondActivity" />
-        <activity android:name=".ThirdActivity" />
+        <activity android:name=".activities.MainActivity" />
+        <activity android:name=".activities.SecondActivity" />
+        <activity android:name=".activities.ThirdActivity" />
     </application>
 
 </manifest>

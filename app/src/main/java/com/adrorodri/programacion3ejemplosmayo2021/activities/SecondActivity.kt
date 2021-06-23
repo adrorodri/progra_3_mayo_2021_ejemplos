@@ -1,4 +1,4 @@
-package com.adrorodri.programacion3ejemplosmayo2021
+package com.adrorodri.programacion3ejemplosmayo2021.activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,6 +8,9 @@ import android.widget.FrameLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.adrorodri.programacion3ejemplosmayo2021.persistency.CarritoDeCompras
+import com.adrorodri.programacion3ejemplosmayo2021.model.Pedido
+import com.adrorodri.programacion3ejemplosmayo2021.R
 import com.google.gson.Gson
 
 class SecondActivity: AppCompatActivity() {

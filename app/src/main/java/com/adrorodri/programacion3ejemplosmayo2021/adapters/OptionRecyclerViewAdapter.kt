@@ -1,4 +1,4 @@
-package com.adrorodri.programacion3ejemplosmayo2021
+package com.adrorodri.programacion3ejemplosmayo2021.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -8,6 +8,8 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.adrorodri.programacion3ejemplosmayo2021.model.MenuOption
+import com.adrorodri.programacion3ejemplosmayo2021.R
 
 class OptionRecyclerViewAdapter(val context: Context, val list: List<MenuOption>): RecyclerView.Adapter<OptionsViewHolder>() {
 

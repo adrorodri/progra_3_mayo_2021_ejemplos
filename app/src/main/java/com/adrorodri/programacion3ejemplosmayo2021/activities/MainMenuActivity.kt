@@ -1,14 +1,15 @@
-package com.adrorodri.programacion3ejemplosmayo2021
+package com.adrorodri.programacion3ejemplosmayo2021.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.adrorodri.programacion3ejemplosmayo2021.model.MenuOption
+import com.adrorodri.programacion3ejemplosmayo2021.adapters.OptionRecyclerViewAdapter
+import com.adrorodri.programacion3ejemplosmayo2021.R
 
 class MainMenuActivity : AppCompatActivity() {
     lateinit var recyclerView: RecyclerView

@@ -8,6 +8,7 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.adrorodri.programacion3ejemplosmayo2021.model.Producto
 
 class StoreRecyclerViewAdapter(val context: Context, val list: List<Producto>): RecyclerView.Adapter<ProductViewHolder>() {
 

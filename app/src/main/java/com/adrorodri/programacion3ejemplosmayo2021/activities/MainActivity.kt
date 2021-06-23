@@ -1,4 +1,4 @@
-package com.adrorodri.programacion3ejemplosmayo2021
+package com.adrorodri.programacion3ejemplosmayo2021.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.*
+import com.adrorodri.programacion3ejemplosmayo2021.R
 
 class MainActivity : AppCompatActivity() {
     var buttonContinuar: Button? = null

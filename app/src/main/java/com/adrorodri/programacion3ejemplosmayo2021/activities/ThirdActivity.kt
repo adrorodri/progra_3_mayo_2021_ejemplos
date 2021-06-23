@@ -1,14 +1,15 @@
-package com.adrorodri.programacion3ejemplosmayo2021
+package com.adrorodri.programacion3ejemplosmayo2021.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
+import com.adrorodri.programacion3ejemplosmayo2021.persistency.CarritoDeCompras
+import com.adrorodri.programacion3ejemplosmayo2021.model.Pedido
+import com.adrorodri.programacion3ejemplosmayo2021.R
+import com.adrorodri.programacion3ejemplosmayo2021.fromJson
 import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
-import org.json.JSONArray
-import org.json.JSONObject
 
 class ThirdActivity : AppCompatActivity() {
     lateinit var buttonVolverConExtras: Button
