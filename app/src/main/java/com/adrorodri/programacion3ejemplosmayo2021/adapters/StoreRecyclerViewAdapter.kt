@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.adrorodri.programacion3ejemplosmayo2021.model.Producto
+import com.bumptech.glide.Glide
 
 class StoreRecyclerViewAdapter(val context: Context, val list: List<Producto>): RecyclerView.Adapter<ProductViewHolder>() {
 
@@ -21,7 +22,7 @@ class StoreRecyclerViewAdapter(val context: Context, val list: List<Producto>): 
     }
 
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
-        holder.bind(list[position])
+        holder.bind(context, list[position])
         holder.imageButton.setOnClickListener {
             funcionMenuOptionClick?.invoke(list[position])
         }
@@ -38,13 +39,17 @@ class StoreRecyclerViewAdapter(val context: Context, val list: List<Producto>): 
 
 class ProductViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
     val textViewTitulo: TextView = itemView.findViewById(R.id.textViewTitulo)
-    val textViewSubtitulo: TextView = itemView.findViewById(R.id.textViewSubtitulo)
+    val textViewSubtitulo: TextView = itemView.findViewById(R.id.textViewPrecioTotal)
     val imageView: ImageView = itemView.findViewById(R.id.imageView)
-    val imageButton: ImageButton = itemView.findViewById(R.id.imageButton)
+    val imageButton: ImageButton = itemView.findViewById(R.id.textViewCantidad)
 
-    fun bind(producto: Producto) {
+    fun bind(context: Context, producto: Producto) {
         textViewTitulo.text = producto.nombre
         textViewSubtitulo.text = "${producto.descripcion} - Bs. ${producto.precio}"
-        imageView.setImageResource(producto.imagen)
+        Glide.with(context)
+            .load(producto.imagen)
+            .centerCrop()
+            .placeholder(R.drawable.icon_loading)
+            .into(imageView)
     }
 }

@@ -8,18 +8,22 @@ import com.google.gson.Gson
 class SharedPreferencesController() {
     val gson = Gson()
 
-    fun guardarUsuario(context: Context, usuario: Usuario) {
+    companion object {
+        private const val KEY_USUARIO = "usuarioGuardado"
+    }
+
+    fun guardarUsuario(context: Context, usuario: Usuario?) {
         val sharedPreferences = context.getSharedPreferences("SharedPrefsUsuario", MODE_PRIVATE)
         val editor = sharedPreferences.edit()
-        editor.putString("usuarioGuardado", gson.toJson(usuario))
+        editor.putString(KEY_USUARIO, gson.toJson(usuario))
         editor.apply()
     }
 
     fun obtenerUsuario(context: Context): Usuario? {
         val sharedPreferences = context.getSharedPreferences("SharedPrefsUsuario", MODE_PRIVATE)
 
-        if(sharedPreferences.contains("usuarioGuardado")) {
-            val usuarioString = sharedPreferences.getString("usuarioGuardado", null)
+        if(sharedPreferences.contains(KEY_USUARIO)) {
+            val usuarioString = sharedPreferences.getString(KEY_USUARIO, null)
             val usuario = gson.fromJson(usuarioString, Usuario::class.java)
             return usuario
         } else {
@@ -27,9 +31,16 @@ class SharedPreferencesController() {
         }
     }
 
-    fun borrarUsuario() {
-
+    fun borrarUsuario(context: Context) {
+        val sharedPreferences = context.getSharedPreferences("SharedPrefsUsuario", MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.remove(KEY_USUARIO)
+        editor.apply()
     }
 
-    fun actualizarPassword() {}
+    fun actualizarPassword(context: Context, passwordNuevo: String) {
+        val usuario = obtenerUsuario(context)
+        usuario?.password = passwordNuevo
+        guardarUsuario(context, usuario)
+    }
 }

@@ -14,13 +14,13 @@
         android:text="TextView"
         android:textColor="#282828"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/textViewSubtitulo"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton"
+        app:layout_constraintBottom_toTopOf="@+id/textViewPrecioTotal"
+        app:layout_constraintEnd_toStartOf="@+id/textViewCantidad"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/textViewCantidad"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginEnd="32dp"
@@ -31,19 +31,18 @@
         app:srcCompat="@drawable/icon_arrow_down" />
 
     <TextView
-        android:id="@+id/textViewSubtitulo"
+        android:id="@+id/textViewPrecioTotal"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton"
+        app:layout_constraintEnd_toStartOf="@+id/textViewCantidad"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/textViewTitulo" />
 
     <ImageView
-        app:tint="?attr/colorPrimary"
         android:id="@+id/imageView"
         android:layout_width="60dp"
         android:layout_height="60dp"

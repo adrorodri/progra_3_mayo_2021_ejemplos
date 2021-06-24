@@ -26,10 +26,10 @@ class TiendaActivity : AppCompatActivity() {
         buttonIrACarrito = findViewById(R.id.buttonIrACarrito)
 
         val listaProductos = listOf(
-            Producto("Comida para Gato", "La mejor comida para tu gato", 17.0, R.drawable.gato),
-            Producto("Comida para Perro", "La mejor comida para tu perro", 16.0, R.drawable.gato),
-            Producto("Juguete para Perro", "Para que tu perro juegue todo el dia!", 34.0, R.drawable.gato),
-            Producto("Juguete para Gato", "Para que tu gato juegue todo el dia!", 25.0, R.drawable.gato)
+            Producto("Comida para Gato", "La mejor comida para tu gato", 17.0, "https://static.collectui.com/shots/3972182/nelio-cart-i-os-design-free-psd-mockup-large"),
+            Producto("Comida para Perro", "La mejor comida para tu perro", 16.0, "https://static.collectui.com/shots/3972182/nelio-cart-i-os-design-free-psd-mockup-large"),
+            Producto("Juguete para Perro", "Para que tu perro juegue todo el dia!", 34.0, "https://static.collectui.com/shots/3972182/nelio-cart-i-os-design-free-psd-mockup-large"),
+            Producto("Juguete para Gato", "Para que tu gato juegue todo el dia!", 25.0, "https://static.collectui.com/shots/3972182/nelio-cart-i-os-design-free-psd-mockup-large")
         )
 
         val adapter = StoreRecyclerViewAdapter(this, listaProductos)

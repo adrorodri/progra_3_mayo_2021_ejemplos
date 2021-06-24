@@ -181,7 +181,7 @@
         app:layout_constraintStart_toEndOf="@+id/switchBoton" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/textViewCantidad"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:scaleType="centerInside"

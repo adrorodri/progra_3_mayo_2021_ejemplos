@@ -44,9 +44,9 @@ class OptionRecyclerViewAdapter(val context: Context, val list: List<MenuOption>
 
 class OptionsViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
     val textViewTitulo: TextView = itemView.findViewById(R.id.textViewTitulo)
-    val textViewSubtitulo: TextView = itemView.findViewById(R.id.textViewSubtitulo)
+    val textViewSubtitulo: TextView = itemView.findViewById(R.id.textViewPrecioTotal)
     val imageView: ImageView = itemView.findViewById(R.id.imageView)
-    val imageButton: ImageButton = itemView.findViewById(R.id.imageButton)
+    val imageButton: ImageButton = itemView.findViewById(R.id.textViewCantidad)
 
     fun bind(menuOption: MenuOption) {
         textViewTitulo.text = menuOption.titulo
