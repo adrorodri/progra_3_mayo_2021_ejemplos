@@ -1,23 +1,27 @@
 package com.adrorodri.programacion3ejemplosmayo2021.activities
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
-import androidx.drawerlayout.widget.DrawerLayout
 import com.adrorodri.programacion3ejemplosmayo2021.R
 import com.adrorodri.programacion3ejemplosmayo2021.model.Usuario
 import com.adrorodri.programacion3ejemplosmayo2021.persistency.SharedPreferencesController
-import com.google.android.material.navigation.NavigationView
+import pub.devrel.easypermissions.EasyPermissions
+import pub.devrel.easypermissions.PermissionRequest
+
 
 class LoginActivity : AppCompatActivity() {
     lateinit var buttonLogin: AppCompatButton
 
     lateinit var editTextUsuario: EditText
     lateinit var editTextPassword: EditText
+    lateinit var textViewRegistrate: TextView
+
+    val requestCodePermissions = 123
 
     val sharedPrefsController = SharedPreferencesController()
 
@@ -31,6 +35,7 @@ class LoginActivity : AppCompatActivity() {
 
         editTextUsuario = findViewById(R.id.editTextUsuario)
         editTextPassword = findViewById(R.id.editTextPassword)
+        textViewRegistrate = findViewById(R.id.textViewRegistrate)
 
         buttonLogin.setOnClickListener {
             val usuario = Usuario(editTextUsuario.text.toString(), editTextPassword.text.toString())
@@ -39,10 +44,36 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        textViewRegistrate.setOnClickListener {
+            val intent = Intent(this, RegistroActivity::class.java)
+            startActivity(intent)
+        }
+
         // One Time Login!
         if(sharedPrefsController.obtenerUsuario(this) != null) {
             val intent = Intent(this, MainMenuActivity::class.java)
             startActivity(intent)
         }
+
+        EasyPermissions.requestPermissions(
+            PermissionRequest.Builder(this,
+                requestCodePermissions,
+                android.Manifest.permission.CALL_PHONE,
+                android.Manifest.permission.CAMERA,
+                android.Manifest.permission.READ_EXTERNAL_STORAGE)
+                .setRationale("La app requiere permisos para funcionar!")
+                .setPositiveButtonText("OK")
+                .setNegativeButtonText("Cancelar")
+                .build()
+        )
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this)
     }
 }

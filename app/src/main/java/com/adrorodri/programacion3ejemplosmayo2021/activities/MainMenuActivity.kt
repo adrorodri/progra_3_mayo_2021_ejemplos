@@ -1,6 +1,7 @@
 package com.adrorodri.programacion3ejemplosmayo2021.activities
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -72,6 +73,18 @@ class MainMenuActivity : AppCompatActivity() {
                     Toast.makeText(this, "Click en Cerrar Sesion", Toast.LENGTH_SHORT).show()
                     sharedPrefsController.borrarUsuario(this)
                     finish()
+                }
+                R.id.menu_item_compartir_app -> {
+                    val intent = Intent()
+                    intent.action = Intent.ACTION_SEND
+                    intent.putExtra(Intent.EXTRA_TEXT, "Hey usa nuestra nueva app!")
+                    intent.type = "text/plain"
+                    startActivity(intent)
+                }
+                R.id.menu_item_llamar_soporte -> {
+                    val intent = Intent(Intent.ACTION_CALL)
+                    intent.data = Uri.parse("tel:123456789")
+                    startActivity(intent)
                 }
             }
             true

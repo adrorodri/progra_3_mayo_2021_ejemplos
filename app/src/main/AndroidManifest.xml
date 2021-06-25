@@ -2,7 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.adrorodri.programacion3ejemplosmayo2021">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -11,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Programacion3EjemplosMayo2021">
-        <activity android:name=".activities.CarritoActivity"></activity>
+        <activity android:name=".activities.RegistroActivity"></activity>
+        <activity android:name=".activities.CarritoActivity" />
         <activity android:name=".activities.TiendaActivity" />
         <activity android:name=".activities.MainMenuActivity" />
         <activity android:name=".activities.LlenarDatosActivity" />
@@ -28,6 +32,16 @@
         <activity android:name=".activities.MainActivity" />
         <activity android:name=".activities.SecondActivity" />
         <activity android:name=".activities.ThirdActivity" />
+
+        <provider
+            android:authorities="com.adrorodri.programacio3ejemplosmayo2021"
+            android:name="androidx.core.content.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
+        </provider>
     </application>
 
 </manifest>

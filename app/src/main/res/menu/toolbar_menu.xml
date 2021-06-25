@@ -7,8 +7,12 @@
         android:title="Ajustes"
         app:iconTint="?attr/colorOnPrimary"
         app:showAsAction="always" />
+    <item android:id="@+id/menu_item_llamar_soporte"
+        android:title="Llamar Soporte" />
     <item android:id="@+id/menu_item_acerca_de"
         android:title="Acerca de" />
+    <item android:id="@+id/menu_item_compartir_app"
+        android:title="Comparte la app!" />
     <item android:id="@+id/menu_item_cerrar_sesion"
         android:title="Cerrar Sesión" />
 </menu>
