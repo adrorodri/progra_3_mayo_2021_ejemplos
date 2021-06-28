@@ -37,8 +37,26 @@
             android:id="@+id/buttonAgregarALaLista"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Button"
+            android:text="Agregar a la lista"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/buttonPopupMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PopupMenu"
+            app:layout_constraintBottom_toTopOf="@+id/buttonAgregarALaLista"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/buttonNotificacion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Notificacion"
+            app:layout_constraintBottom_toTopOf="@+id/buttonPopupMenu"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>

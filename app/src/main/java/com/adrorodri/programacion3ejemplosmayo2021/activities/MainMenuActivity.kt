@@ -1,12 +1,19 @@
 package com.adrorodri.programacion3ejemplosmayo2021.activities
 
+import android.app.NotificationManager
+import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.widget.PopupMenu
+import androidx.core.app.NotificationCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -15,6 +22,7 @@ import com.adrorodri.programacion3ejemplosmayo2021.adapters.OptionRecyclerViewAd
 import com.adrorodri.programacion3ejemplosmayo2021.R
 import com.adrorodri.programacion3ejemplosmayo2021.persistency.SharedPreferencesController
 import com.google.android.material.navigation.NavigationView
+import com.google.android.material.snackbar.Snackbar
 
 class MainMenuActivity : AppCompatActivity() {
     lateinit var toolbar: androidx.appcompat.widget.Toolbar
@@ -22,6 +30,8 @@ class MainMenuActivity : AppCompatActivity() {
     lateinit var navigationView: NavigationView
     lateinit var recyclerView: RecyclerView
     lateinit var buttonAgregarALaLista: Button
+    lateinit var buttonPopupMenu: Button
+    lateinit var buttonNotificacion: Button
     val sharedPrefsController = SharedPreferencesController()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,6 +41,8 @@ class MainMenuActivity : AppCompatActivity() {
         recyclerView = findViewById(R.id.recyclerView)
         toolbar = findViewById(R.id.toolbar)
         buttonAgregarALaLista = findViewById(R.id.buttonAgregarALaLista)
+        buttonPopupMenu = findViewById(R.id.buttonPopupMenu)
+        buttonNotificacion = findViewById(R.id.buttonNotificacion)
         drawerLayout = findViewById(R.id.drawer_layout)
         navigationView = findViewById(R.id.navigationView)
 
@@ -61,13 +73,50 @@ class MainMenuActivity : AppCompatActivity() {
             adapter.notifyDataSetChanged()
         }
 
+        buttonPopupMenu.setOnClickListener {
+            val popupMenu = PopupMenu(this, it)
+            popupMenu.inflate(R.menu.popup_menu)
+            popupMenu.setOnMenuItemClickListener {
+                when(it.itemId) {
+                    R.id.menu_item_agregar -> {
+                        Snackbar.make(this, drawerLayout, "Click en Agregar!", Snackbar.LENGTH_SHORT).show()
+                    }
+                    R.id.menu_item_remover -> {
+                        Snackbar.make(this, drawerLayout, "Click en Remover!", Snackbar.LENGTH_SHORT).show()
+                    }
+                }
+                true
+            }
+            popupMenu.show()
+        }
+
+        buttonNotificacion.setOnClickListener {
+            val builder = NotificationCompat.Builder(this, "12345")
+                .setSmallIcon(R.drawable.icon_gears)
+                .setContentTitle("Ejemplo de notificacion!")
+                .setContentText("Aqui ponemos cualquier contenido que querramos mostrar en la notificacion")
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            val notification = builder.build()
+            val notificationManager: NotificationManager =
+                getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.notify(123, notification)
+        }
+
         toolbar.setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.menu_item_ajustes -> {
                     Toast.makeText(this, "Click en Ajustes", Toast.LENGTH_SHORT).show()
                 }
                 R.id.menu_item_acerca_de -> {
-                    Toast.makeText(this, "Click en Acerca de", Toast.LENGTH_SHORT).show()
+                    val alertDialog = AlertDialog.Builder(this).apply {
+                        setTitle("Acerca De")
+                        setMessage("Aplicacion de prueba para Programacion 3 UPB")
+                        setPositiveButton("OK") { _, _ ->
+                            Toast.makeText(this@MainMenuActivity, "Click en OK!!", Toast.LENGTH_SHORT).show()
+                        }
+                    }.create()
+
+                    alertDialog.show()
                 }
                 R.id.menu_item_cerrar_sesion -> {
                     Toast.makeText(this, "Click en Cerrar Sesion", Toast.LENGTH_SHORT).show()

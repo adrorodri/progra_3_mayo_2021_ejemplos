@@ -2,6 +2,7 @@ package com.adrorodri.programacion3ejemplosmayo2021.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
@@ -38,10 +39,26 @@ class LoginActivity : AppCompatActivity() {
         textViewRegistrate = findViewById(R.id.textViewRegistrate)
 
         buttonLogin.setOnClickListener {
-            val usuario = Usuario(editTextUsuario.text.toString(), editTextPassword.text.toString())
-            sharedPrefsController.guardarUsuario(this, usuario)
-            val intent = Intent(this, MainMenuActivity::class.java)
-            startActivity(intent)
+            val username = editTextUsuario.text.toString()
+            val password = editTextPassword.text.toString()
+
+            if(username.isEmpty() || password.isEmpty()) {
+//                Toast.makeText(this, "Algun campo esta vacio!!", Toast.LENGTH_SHORT).show()
+
+                val toastView = layoutInflater.inflate(R.layout.layout_toast, null)
+                val toastTextView = toastView.findViewById<TextView>(R.id.textViewToast)
+                toastTextView.text = "Usuario o password vacio!!"
+
+                val toast = Toast(this)
+                toast.duration = Toast.LENGTH_LONG
+                toast.view = toastView
+                toast.show()
+            } else {
+                val usuario = Usuario(editTextUsuario.text.toString(), editTextPassword.text.toString())
+                sharedPrefsController.guardarUsuario(this, usuario)
+                val intent = Intent(this, MainMenuActivity::class.java)
+                startActivity(intent)
+            }
         }
 
         textViewRegistrate.setOnClickListener {

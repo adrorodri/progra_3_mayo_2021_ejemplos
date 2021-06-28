@@ -51,9 +51,9 @@ class DatabaseController(val context: Context): SQLiteOpenHelper(context, "Progr
         return listaCarrito
     }
 
-    fun borrarDelCarrito(id: Int) {
+    fun borrarDelCarrito(nombre: String) {
         // DELETE FROM CarritoDeCompras WHERE nombre = "nombreProductoABorrar"
-        writableDatabase.delete("CarritoDeCompras", "_id = \"${id}\"", arrayOf())
+        writableDatabase.delete("CarritoDeCompras", "nombre = \"${nombre}\"", arrayOf())
     }
 
     fun actualizarPrecio(id: Int, nuevoPrecio: Double) {

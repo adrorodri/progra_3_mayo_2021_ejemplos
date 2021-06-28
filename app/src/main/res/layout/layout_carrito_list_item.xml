@@ -23,16 +23,16 @@
         android:id="@+id/textViewCantidad"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginEnd="32dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/round_shape"
+        android:gravity="center"
         android:text="7"
         android:textColor="@color/white"
         android:textSize="25sp"
-        android:gravity="center"
         android:textStyle="bold"
-        android:background="@drawable/round_shape"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageViewRemove"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textViewPrecioTotal"
@@ -58,4 +58,14 @@
         android:layout_height="1dp"
         android:background="#333333"
         app:layout_constraintBottom_toBottomOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageViewRemove"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="24dp"
+        android:src="@drawable/icon_remove"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

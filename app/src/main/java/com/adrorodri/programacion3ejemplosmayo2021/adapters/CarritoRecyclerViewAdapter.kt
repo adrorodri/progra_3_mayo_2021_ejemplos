@@ -23,6 +23,9 @@ class CarritoRecyclerViewAdapter(val context: Context, val list: List<ProductoCa
 
     override fun onBindViewHolder(holder: CarritoViewHolder, position: Int) {
         holder.bind(context, list[position])
+        holder.imageViewRemove.setOnClickListener {
+            funcionMenuOptionClick?.invoke(list[position])
+        }
     }
 
     override fun getItemCount(): Int {
@@ -36,6 +39,7 @@ class CarritoRecyclerViewAdapter(val context: Context, val list: List<ProductoCa
 
 class CarritoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     val imageView: ImageView = itemView.findViewById(R.id.imageView)
+    val imageViewRemove: ImageView = itemView.findViewById(R.id.imageViewRemove)
     val textViewTitulo: TextView = itemView.findViewById(R.id.textViewTitulo)
     val textViewPrecioTotal: TextView = itemView.findViewById(R.id.textViewPrecioTotal)
     val textViewCantidad: TextView = itemView.findViewById(R.id.textViewCantidad)
